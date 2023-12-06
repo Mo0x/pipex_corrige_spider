@@ -1,0 +1,3 @@
+Petit probleme quand on passe un fichier local `.sh` (avec les perms d'execution).
+Il y a un double free  sur le fichier srcs/path_and_cmd_finder.c:21 car tu renvoies la valeur
+de s_cmd[0] si jamais on utilise un path local. Puis, tu free le tableau ET la valeur.
