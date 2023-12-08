@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:42:24 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/08 16:14:55 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:39:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	ft_exec(char *cmd, char **envp)
 	execve(ex, s_cmd, envp);
 	ft_free_array((void **)paths);
 	ft_free_array((void **)s_cmd);
-	free(ex);
+	if (ex)
+		free(ex);
 	return (0);
 }
 

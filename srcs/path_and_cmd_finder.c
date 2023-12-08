@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:38:24 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/05 14:03:24 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:01:55 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**path_finder(char **envp)
 
 	i = 0;
 	paths = NULL;
-	while (!ft_strnstr(envp[i], "PATH", 4))
+	while (ft_strncmp(envp[i], "PATH", 4))
 		i++;
 	if (envp[i])
 	{
@@ -68,7 +68,7 @@ char	*command_finder(char **paths, char *cmd)
 
 	i = 0;
 	if (access(cmd, F_OK | X_OK) == 0)
-		return (cmd);
+		return (ft_strdup(cmd));
 	while (paths[i])
 	{
 		ret = ft_strjoin(paths[i], cmd);
