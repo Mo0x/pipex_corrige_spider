@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:12:58 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/06 17:22:58 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:19:13 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_heredoc_sdin(char **argv, int *super_pipe)
 {
 	char	*ret;
 
+	ret = NULL;
 	close(super_pipe[0]);
 	if (argv[2][0] == '\0')
 		argv[2] = "\n";
@@ -88,10 +89,10 @@ int	main(int argc, char **argv, char **envp)
 	int	f2;
 	int	i;
 
+	if (argc < 5)
+		ft_argc_error(argv[0]);
 	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 		ft_here_starter(&i, argc, argv, &f2);
-	else if (argc < 5)
-		ft_argc_error(argv[0]);
 	else
 	{
 		i = 2;

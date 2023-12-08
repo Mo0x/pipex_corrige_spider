@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:42:24 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/06 14:22:05 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:14:55 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_exec(char *cmd, char **envp)
 	char	*ex;
 
 	s_cmd = ft_split(cmd, ' ');
+	if (!s_cmd)
+		return (0);
 	paths = path_finder(envp);
 	ex = command_finder(paths, s_cmd[0]);
 	if (!ex)
